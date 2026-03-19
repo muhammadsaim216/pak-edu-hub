@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import { BookOpen, ChevronDown, Menu, X, LogOut, LayoutDashboard } from "lucide-react";
+import { BookOpen, ChevronDown, Menu, X, LogOut, LayoutDashboard, Shield } from "lucide-react";
 
 export function Navbar() {
   const { user, isTeacher, isAdmin, signOut } = useAuth();
@@ -67,6 +67,14 @@ export function Navbar() {
             </Link>
           )}
 
+          {isAdmin && (
+            <Link to="/admin">
+              <Button variant="ghost" size="sm">
+                <Shield className="mr-1 h-3.5 w-3.5" /> Admin
+              </Button>
+            </Link>
+          )}
+
           {user ? (
             <Button variant="ghost" size="sm" onClick={handleSignOut}>
               <LogOut className="mr-1 h-3.5 w-3.5" /> Sign Out
@@ -101,6 +109,11 @@ export function Navbar() {
             {(isTeacher || isAdmin) && (
               <Link to="/dashboard" onClick={() => setMobileOpen(false)}>
                 <Button variant="ghost" size="sm" className="w-full justify-start">Dashboard</Button>
+              </Link>
+            )}
+            {isAdmin && (
+              <Link to="/admin" onClick={() => setMobileOpen(false)}>
+                <Button variant="ghost" size="sm" className="w-full justify-start">Admin</Button>
               </Link>
             )}
             {user ? (
