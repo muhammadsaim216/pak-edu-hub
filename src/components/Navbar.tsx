@@ -67,6 +67,14 @@ export function Navbar() {
             </Link>
           )}
 
+          {isAdmin && (
+            <Link to="/admin">
+              <Button variant="ghost" size="sm">
+                <Shield className="mr-1 h-3.5 w-3.5" /> Admin
+              </Button>
+            </Link>
+          )}
+
           {user ? (
             <Button variant="ghost" size="sm" onClick={handleSignOut}>
               <LogOut className="mr-1 h-3.5 w-3.5" /> Sign Out
