@@ -111,6 +111,11 @@ export function Navbar() {
                 <Button variant="ghost" size="sm" className="w-full justify-start">Dashboard</Button>
               </Link>
             )}
+            {isAdmin && (
+              <Link to="/admin" onClick={() => setMobileOpen(false)}>
+                <Button variant="ghost" size="sm" className="w-full justify-start">Admin</Button>
+              </Link>
+            )}
             {user ? (
               <Button variant="ghost" size="sm" className="w-full justify-start" onClick={handleSignOut}>
                 Sign Out
