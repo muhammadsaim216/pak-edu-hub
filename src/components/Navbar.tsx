@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import { BookOpen, ChevronDown, Menu, X, LogOut, LayoutDashboard } from "lucide-react";
+import { BookOpen, ChevronDown, Menu, X, LogOut, LayoutDashboard, Shield } from "lucide-react";
 
 export function Navbar() {
   const { user, isTeacher, isAdmin, signOut } = useAuth();
